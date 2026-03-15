@@ -370,6 +370,7 @@ body {
 
   .landing-page {
     min-height: auto;
+    display: block;
   }
 
   .landing-page {
@@ -436,6 +437,7 @@ body {
 
   .project-grid {
     grid-template-columns: 1fr;
+    margin-top: 1rem;
   }
 }
 
