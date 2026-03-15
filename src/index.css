@@ -495,7 +495,7 @@ body {
 .project-link-nav {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 24px;
 }
 
 .project-link-nav-item {
