@@ -460,7 +460,7 @@ body {
   color: #ffffff;
   background: #01b58c;
   border-radius: 999px;
-  margin: 0 auto;
+  margin: 4px auto 0;
 }
 
 .project-link-toggle {
@@ -473,7 +473,8 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  margin-bottom: 10px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .project-link-sidebar.expanded .project-link-logo,
@@ -483,7 +484,7 @@ body {
 }
 
 .project-link-sidebar.expanded .project-link-logo {
-  margin: 0;
+  margin: 4px 0 0;
 }
 
 .project-link-toggle .material-symbols-outlined,
