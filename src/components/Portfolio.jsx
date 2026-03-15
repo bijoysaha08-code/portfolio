@@ -6,7 +6,7 @@ const Portfolio = () => {
   return (
     <section className="landing-page">
       <header className="landing-header">
-        <a href="#" className="landing-logo">Bijoy Saha</a>
+        <span className="landing-logo">Bijoy Saha</span>
         <button
           type="button"
           className="landing-menu-toggle"
@@ -51,6 +51,9 @@ const Portfolio = () => {
           <p>Data products and visual reporting.</p>
         </article>
       </section>
+
+      <div id="cv" className="landing-anchor" aria-hidden="true"></div>
+      <div id="contact" className="landing-anchor" aria-hidden="true"></div>
     </section>
   );
 };
