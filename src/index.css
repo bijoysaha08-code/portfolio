@@ -421,8 +421,8 @@ body {
 
   .project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    position: static;
-    bottom: auto;
+    position: static !important;
+    bottom: auto !important;
     margin-top: 1rem;
     padding-top: 0;
     background: transparent;
