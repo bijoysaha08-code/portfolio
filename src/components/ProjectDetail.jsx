@@ -15,16 +15,40 @@ export default function ProjectDetail({ project }) {
 
       <p className="project-detail-copy">{project.detail}</p>
 
+      {project.slug === 'healthcare' && (
+        <section className="project-app-section" aria-label="Developed application preview">
+          <h2 className="project-detail-subheading">Healthcare CRM</h2>
+          <Link className="project-app-preview" to={`/project/${project.slug}/link`}>
+            <div className="project-app-preview-top">
+              <span className="project-app-chip">Patient Dashboard</span>
+              <span className="project-app-chip">Vitals</span>
+              <span className="project-app-chip">Reports</span>
+            </div>
+            <div className="project-app-preview-body">
+              <div className="project-app-row" />
+              <div className="project-app-grid">
+                <div className="project-app-tile" />
+                <div className="project-app-tile" />
+                <div className="project-app-tile" />
+                <div className="project-app-tile" />
+              </div>
+              <div className="project-app-table">
+                <div className="project-app-table-row" />
+                <div className="project-app-table-row" />
+                <div className="project-app-table-row" />
+              </div>
+            </div>
+            <p className="project-app-caption">Click to open the developed application</p>
+          </Link>
+        </section>
+      )}
+
       <Link
         className="project-detail-link-button"
         to={`/project/${project.slug}/link`}
       >
         Open Link
       </Link>
-
-      {project.slug === 'healthcare' && (
-        <h2 className="project-detail-subheading">Healthcare CRM</h2>
-      )}
     </section>
   );
 }
