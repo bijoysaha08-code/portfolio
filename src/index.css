@@ -362,6 +362,10 @@ body {
 }
 
 @media (max-width: 900px) {
+  .landing-page {
+    padding-bottom: 16px;
+  }
+
   .main-content {
     padding: 1rem 16px;
   }
