@@ -23,7 +23,7 @@ const Portfolio = () => {
           <p>Fintech tools and analytics workflows.</p>
         </article>
 
-        <article className="project-box project-box-active">
+        <article className="project-box">
           <h2>Healthcare</h2>
           <p>Open the existing healthcare interface.</p>
         </article>
