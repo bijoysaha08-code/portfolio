@@ -2,6 +2,7 @@ import React from 'react';
 import { HashRouter, Navigate, Route, Routes, useParams } from 'react-router-dom';
 import Portfolio from './components/Portfolio';
 import ProjectDetail from './components/ProjectDetail';
+import ProjectLinkPage from './components/ProjectLinkPage';
 
 const projects = [
   {
@@ -49,6 +50,17 @@ function ProjectDetailRoute() {
   return <ProjectDetail project={project} />;
 }
 
+function ProjectLinkRoute() {
+  const { projectId } = useParams();
+  const project = projects.find((entry) => entry.slug === projectId);
+
+  if (!project) {
+    return <Navigate to="/" replace />;
+  }
+
+  return <ProjectLinkPage project={project} />;
+}
+
 export default function App() {
   return (
     <HashRouter>
@@ -56,6 +68,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Portfolio projects={projects} />} />
           <Route path="/project/:projectId" element={<ProjectDetailRoute />} />
+          <Route path="/project/:projectId/link" element={<ProjectLinkRoute />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

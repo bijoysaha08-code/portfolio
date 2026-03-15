@@ -15,14 +15,12 @@ export default function ProjectDetail({ project }) {
 
       <p className="project-detail-copy">{project.detail}</p>
 
-      <a
+      <Link
         className="project-detail-link-button"
-        href={project.link}
-        target="_blank"
-        rel="noreferrer"
+        to={`/project/${project.slug}/link`}
       >
         Open Link
-      </a>
+      </Link>
     </section>
   );
 }

@@ -369,7 +369,18 @@ body {
   min-height: calc(100vh - 2rem);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 40px;
+  gap: 1.5rem;
+}
+
+.project-link-page {
+  width: min(720px, 100%);
+  min-height: calc(100vh - 2rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 40px;
   gap: 1.5rem;
 }
 
@@ -530,7 +541,13 @@ body {
   .project-detail-page {
     min-height: calc(100dvh - 2rem);
     justify-content: flex-start;
-    padding-top: 2rem;
+    padding-top: 40px;
+  }
+
+  .project-link-page {
+    min-height: calc(100dvh - 2rem);
+    justify-content: flex-start;
+    padding-top: 40px;
   }
 }
 
