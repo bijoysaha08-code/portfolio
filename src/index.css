@@ -362,6 +362,10 @@ body {
 }
 
 @media (max-width: 900px) {
+  .main-content {
+    padding: 1rem 16px;
+  }
+
   .portfolio-strip {
     flex-direction: column;
     align-items: flex-start;
@@ -395,12 +399,20 @@ body {
     display: flex;
   }
 
+  .landing-logo {
+    font-size: 2rem;
+  }
+
   .project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 640px) {
+  .main-content {
+    padding: 0.75rem 12px;
+  }
+
   .project-grid {
     grid-template-columns: 1fr;
   }
