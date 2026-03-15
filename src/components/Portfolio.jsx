@@ -21,25 +21,21 @@ const Portfolio = () => {
         <article className="project-box">
           <h2>Finance</h2>
           <p>Fintech tools and analytics workflows.</p>
-          <a href="#" aria-disabled="true">Coming Soon</a>
         </article>
 
         <article className="project-box project-box-active">
           <h2>Healthcare</h2>
           <p>Open the existing healthcare interface.</p>
-          <a href="#" aria-disabled="true">Coming Soon</a>
         </article>
 
         <article className="project-box">
           <h2>IOS app</h2>
           <p>Mobile-first product experiments.</p>
-          <a href="#" aria-disabled="true">Coming Soon</a>
         </article>
 
         <article className="project-box">
           <h2>Dashboard</h2>
           <p>Data products and visual reporting.</p>
-          <a href="#" aria-disabled="true">Coming Soon</a>
         </article>
       </section>
     </section>
