@@ -243,6 +243,17 @@ body {
   gap: 1.25rem;
 }
 
+.landing-menu button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+  cursor: pointer;
+}
+
 .landing-menu-toggle {
   display: none;
   width: 42px;
@@ -264,13 +275,15 @@ body {
   display: block;
 }
 
-.landing-menu a {
+.landing-menu a,
+.landing-menu button {
   color: #374151;
   text-decoration: none;
   font-weight: 600;
 }
 
-.landing-menu a:hover {
+.landing-menu a:hover,
+.landing-menu button:hover {
   color: #111827;
 }
 
@@ -297,6 +310,11 @@ body {
   bottom: 100px;
   background: #ffffff;
   padding-top: 0.75rem;
+}
+
+.project-box-link {
+  color: inherit;
+  text-decoration: none;
 }
 
 .project-box {
@@ -341,9 +359,73 @@ body {
   background: #9ca3af;
 }
 
-.project-box:hover {
+.project-box-link:hover .project-box {
   border-color: #0f766e;
   box-shadow: 0 6px 18px rgba(15, 118, 110, 0.14);
+}
+
+.project-detail-page {
+  width: min(720px, 100%);
+  min-height: calc(100vh - 2rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.project-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.project-detail-header h1 {
+  margin: 0;
+  color: #111827;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.project-detail-back {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  color: #111827;
+  text-decoration: none;
+}
+
+.project-detail-back .material-symbols-outlined {
+  font-size: 28px;
+}
+
+.project-detail-copy {
+  margin: 0;
+  max-width: 56ch;
+  color: #4b5563;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.project-detail-link-button {
+  width: fit-content;
+  height: 40px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border: none;
+  background: #000000;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 40px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .landing-info {
@@ -418,6 +500,10 @@ body {
     z-index: 20;
   }
 
+  .landing-menu button {
+    text-align: left;
+  }
+
   .landing-menu.open {
     display: flex;
   }
@@ -440,6 +526,12 @@ body {
     padding-top: 0;
     background: transparent;
   }
+
+  .project-detail-page {
+    min-height: calc(100dvh - 2rem);
+    justify-content: flex-start;
+    padding-top: 2rem;
+  }
 }
 
 @media (max-width: 640px) {
@@ -454,6 +546,14 @@ body {
   .project-grid {
     grid-template-columns: 1fr;
     margin-top: 1rem;
+  }
+
+  .project-detail-header {
+    gap: 0.75rem;
+  }
+
+  .project-detail-header h1 {
+    font-size: 1.6rem;
   }
 }
 

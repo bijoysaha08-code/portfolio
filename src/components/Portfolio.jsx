@@ -1,7 +1,13 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 
-const Portfolio = () => {
+const Portfolio = ({ projects }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleMenuClick = (targetId) => {
+    setMenuOpen(false);
+    document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
     <section className="landing-page">
@@ -19,9 +25,9 @@ const Portfolio = () => {
           <span></span>
         </button>
         <nav className={`landing-menu ${menuOpen ? "open" : ""}`}>
-          <a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a>
-          <a href="#cv" onClick={() => setMenuOpen(false)}>Resume</a>
-          <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+          <button type="button" onClick={() => handleMenuClick('projects')}>Projects</button>
+          <button type="button" onClick={() => handleMenuClick('cv')}>Resume</button>
+          <button type="button" onClick={() => handleMenuClick('contact')}>Contact</button>
         </nav>
       </header>
 
@@ -30,25 +36,19 @@ const Portfolio = () => {
       </section>
 
       <section id="projects" className="project-grid">
-        <article className="project-box">
-          <h2>Finance</h2>
-          <p>Fintech tools and analytics workflows.</p>
-        </article>
-
-        <article className="project-box">
-          <h2>Healthcare</h2>
-          <p>Open the existing healthcare interface.</p>
-        </article>
-
-        <article className="project-box">
-          <h2>IOS app</h2>
-          <p>Mobile-first product experiments.</p>
-        </article>
-
-        <article className="project-box">
-          <h2>Dashboard</h2>
-          <p>Data products and visual reporting.</p>
-        </article>
+        {projects.map((project) => (
+          <Link
+            key={project.slug}
+            to={`/project/${project.slug}`}
+            className="project-box-link"
+            onClick={() => setMenuOpen(false)}
+          >
+            <article className="project-box">
+              <h2>{project.title}</h2>
+              <p>{project.summary}</p>
+            </article>
+          </Link>
+        ))}
       </section>
 
       <div id="cv" className="landing-anchor" aria-hidden="true"></div>
