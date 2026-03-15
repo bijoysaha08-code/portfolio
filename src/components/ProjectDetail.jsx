@@ -21,6 +21,10 @@ export default function ProjectDetail({ project }) {
       >
         Open Link
       </Link>
+
+      {project.slug === 'healthcare' && (
+        <h2 className="project-detail-subheading">Healthcare CRM</h2>
+      )}
     </section>
   );
 }
