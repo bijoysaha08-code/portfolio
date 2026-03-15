@@ -43,14 +43,12 @@ export default function ProjectDetail({ project }) {
         </section>
       )}
 
-      <a
+      <Link
         className="project-detail-link-button"
-        href={project.link}
-        target="_blank"
-        rel="noopener noreferrer"
+        to={`/project/${project.slug}/link`}
       >
         Open Link
-      </a>
+      </Link>
     </section>
   );
 }
