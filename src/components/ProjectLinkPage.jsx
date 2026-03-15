@@ -103,9 +103,31 @@ export default function ProjectLinkPage({ project }) {
         </aside>
 
         <div className="project-link-main" aria-label="Main dashboard area">
-          <div className="project-link-main-content">
-            <h2>{activePage}</h2>
-            <p>{pageCopy[activePage]}</p>
+          <div className="project-link-body">
+            <div className="project-link-toprow">
+              {/* Section 1: Branch dropdown */}
+              <button type="button" className="project-link-branch-dropdown">
+                <span className="project-link-branch-text">All Branches</span>
+                <span className="material-symbols-outlined" aria-hidden="true">keyboard_arrow_down</span>
+              </button>
+
+              {/* Section 2: Search */}
+              <div className="project-link-search" role="search">
+                <span className="project-link-search-label">Search</span>
+                <span className="material-symbols-outlined" aria-hidden="true">search</span>
+              </div>
+
+              {/* Section 3: Notification + Profile */}
+              <div className="project-link-header-icons">
+                <span className="material-symbols-outlined" aria-label="Notifications">notifications</span>
+                <span className="material-symbols-outlined" aria-label="Profile">account_circle</span>
+              </div>
+            </div>
+
+            <div className="project-link-main-content">
+              <h2>{activePage}</h2>
+              <p>{pageCopy[activePage]}</p>
+            </div>
           </div>
         </div>
       </section>
