@@ -11,7 +11,8 @@ body {
 
 .app-layout {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
 }
 
 .sidebar {
@@ -78,7 +79,7 @@ body {
 
 .main-content {
   flex: 1;
-  overflow-y: auto;
+  overflow-y: visible;
   padding: 1rem 100px;
 }
 
