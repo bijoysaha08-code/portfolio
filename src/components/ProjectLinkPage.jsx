@@ -5,6 +5,13 @@ export default function ProjectLinkPage({ project }) {
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
   const [activePage, setActivePage] = useState('Home');
 
+  const handleLogoutClick = () => {
+    const confirmed = window.confirm('Are you sure you want to logout?');
+    if (confirmed) {
+      setActivePage('Logout');
+    }
+  };
+
   const navItems = [
     { icon: 'home', label: 'Home' },
     { icon: 'calendar_month', label: 'Appointments' },
@@ -84,7 +91,7 @@ export default function ProjectLinkPage({ project }) {
             type="button"
             className={`project-link-nav-item project-link-logout ${activePage === 'Logout' ? 'active' : ''}`}
             aria-current={activePage === 'Logout' ? 'page' : undefined}
-            onClick={() => setActivePage('Logout')}
+            onClick={handleLogoutClick}
           >
             <span className="project-link-icon-box" aria-hidden="true">
               <span className="material-symbols-outlined" aria-hidden="true">
