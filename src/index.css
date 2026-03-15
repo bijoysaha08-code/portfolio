@@ -476,6 +476,15 @@ body {
   font-size: 24px;
 }
 
+.project-link-sidebar .project-link-nav-item .material-symbols-outlined,
+.project-link-sidebar.expanded .project-link-nav-item .material-symbols-outlined,
+.project-link-sidebar.collapsed .project-link-nav-item .material-symbols-outlined {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+}
+
 .project-link-nav {
   display: flex;
   flex-direction: column;
