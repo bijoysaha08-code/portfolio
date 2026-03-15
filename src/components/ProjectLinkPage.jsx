@@ -14,7 +14,7 @@ export default function ProjectLinkPage({ project }) {
             arrow_left_alt
           </span>
         </Link>
-        <h1 className="project-link-title">{project.title} Link Page</h1>
+        <h1 className="project-link-title">Back</h1>
       </header>
 
       <p className="project-detail-copy">
