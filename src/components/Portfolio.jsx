@@ -27,7 +27,6 @@ const Portfolio = () => {
 
       <section className="landing-hero">
         <h1>Experience Designer specializing in Storytelling, Strategy, Enterprise UX, and Scalable Design Systems — leveraging Gen AI and modern design tools.</h1>
-        <p>Select an area to explore my work.</p>
       </section>
 
       <section id="projects" className="project-grid">

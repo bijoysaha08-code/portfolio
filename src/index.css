@@ -275,19 +275,17 @@ body {
 }
 
 .landing-hero {
-  margin: 1.5rem 0 1.2rem;
+  margin: 0;
+  flex: 1;
+  width: 60%;
+  display: flex;
+  align-items: center;
 }
 
 .landing-hero h1 {
   margin: 0;
   font-size: 2rem;
   color: #111827;
-}
-
-.landing-hero p {
-  margin: 0.5rem 0 0;
-  color: #4b5563;
-  font-size: 1rem;
 }
 
 .project-grid {
@@ -428,6 +426,12 @@ body {
     font-size: 2rem;
   }
 
+  .landing-hero {
+    width: 100%;
+    display: block;
+    margin: 1.5rem 0 1.2rem;
+  }
+
   .project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     position: static !important;
@@ -441,6 +445,10 @@ body {
 @media (max-width: 640px) {
   .main-content {
     padding: 1rem 16px;
+  }
+
+  .landing-hero h1 {
+    font-size: 1.6rem;
   }
 
   .project-grid {
