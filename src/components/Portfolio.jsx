@@ -45,6 +45,9 @@ const Portfolio = ({ projects }) => {
             className="project-box-link"
           >
             <article className="project-box">
+              <span className="project-box-icon material-symbols-outlined" aria-hidden="true">
+                arrow_outward
+              </span>
               <span className="project-box-index">0{index + 1}</span>
               <h2>{project.title}</h2>
               <p>{project.summary}</p>
