@@ -28,7 +28,7 @@ const Portfolio = ({ projects }) => {
               Download CV
             </a>
             <a
-              href="mailto:bijoysaha08.code@gmail.com"
+              href="mailto:bijoysaha08@gmail.com"
               className="landing-hero-btn landing-hero-btn-secondary"
             >
               Contact
