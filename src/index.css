@@ -110,7 +110,7 @@ body {
 
 .portfolio-strip-logo {
   font-family: 'Inter', sans-serif;
-  color: #000000;
+  color: #FFFFFF;
   font-size: 48px;
   font-weight: 600;
   text-decoration: none;
@@ -125,12 +125,12 @@ body {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 700;
-  color: #000000;
+  color: #FFFFFF;
   text-decoration: none;
 }
 
 .portfolio-strip-links a:hover {
-  color: #000000;
+  color: #FFFFFF;
 }
 
 .container {
@@ -363,7 +363,7 @@ body {
   border: 1px solid #0F36FA;
   border-radius: 999px;
   background: #0F36FA;
-  color: #000000;
+  color: #FFFFFF;
   text-decoration: none;
   text-align: center;
   line-height: 1;
@@ -380,7 +380,7 @@ body {
 
 .landing-hero-btn-secondary {
   background: #0F36FA;
-  color: #000000;
+  color: #FFFFFF;
 }
 
 .landing-hero-btn-secondary:hover {
@@ -450,7 +450,7 @@ body {
 .project-box-link:hover .project-box h2,
 .project-box-link:hover .project-box p,
 .project-box-link:hover .project-box-cta {
-  color: #000000;
+  color: #FFFFFF;
 }
 
 .project-detail-page {
@@ -546,7 +546,7 @@ body {
   justify-content: center;
   font-size: 14px;
   font-weight: 700;
-  color: #000000;
+  color: #FFFFFF;
   background: #01b58c;
   border-radius: 999px;
   margin: 4px auto 0;
@@ -557,7 +557,7 @@ body {
   min-height: 40px;
   border: none;
   background: transparent;
-  color: #000000;
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -600,7 +600,7 @@ body {
   min-height: 40px;
   border: none;
   background: transparent;
-  color: #000000;
+  color: #FFFFFF;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -625,7 +625,7 @@ body {
 }
 
 .project-link-nav-item:hover .project-link-icon-box .material-symbols-outlined {
-  color: #000000;
+  color: #FFFFFF;
 }
 
 .project-link-nav-item.active .project-link-icon-box {
@@ -633,7 +633,7 @@ body {
 }
 
 .project-link-nav-item.active .project-link-icon-box .material-symbols-outlined {
-  color: #000000;
+  color: #FFFFFF;
 }
 
 .project-link-nav-item.active:hover .project-link-icon-box {
@@ -691,13 +691,13 @@ body {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 400;
-  color: #000000;
+  color: #FFFFFF;
   padding: 0;
 }
 
 .project-link-branch-dropdown .material-symbols-outlined {
   font-size: 20px;
-  color: #000000;
+  color: #FFFFFF;
 }
 
 .project-link-search {
@@ -716,12 +716,12 @@ body {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 400;
-  color: #000000;
+  color: #FFFFFF;
 }
 
 .project-link-search .material-symbols-outlined {
   font-size: 24px;
-  color: #000000;
+  color: #FFFFFF;
 }
 
 .project-link-header-icons {
@@ -732,7 +732,7 @@ body {
 
 .project-link-header-icons .material-symbols-outlined {
   font-size: 24px;
-  color: #000000;
+  color: #FFFFFF;
   width: 24px;
   height: 24px;
   display: flex;
@@ -801,7 +801,7 @@ body {
   padding-right: 24px;
   border: none;
   background: #000000;
-  color: #000000;
+  color: #FFFFFF;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -966,7 +966,7 @@ body {
 
 .landing-contact-actions a {
   text-decoration: none;
-  color: #000000;
+  color: #FFFFFF;
   background: rgba(255, 255, 255, 0.16);
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 999px;
