@@ -229,7 +229,7 @@ body {
   width: 100%;
   margin: 0;
   padding: 0 0 2.25rem;
-  min-height: calc(100vh - 2.5rem);
+  min-height: calc(100vh - 2rem);
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -373,10 +373,7 @@ body {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.95rem;
-  margin-top: 0.5rem;
-  position: sticky;
-  bottom: 100px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, var(--brand-bg) 20%);
+  margin-top: auto;
   padding-top: 1.35rem;
 }
 
@@ -995,8 +992,6 @@ body {
 
   .project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    position: static !important;
-    bottom: auto !important;
     margin-top: 1rem;
     padding-top: 0;
     background: transparent;
