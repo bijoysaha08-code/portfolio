@@ -20,8 +20,8 @@ const Portfolio = ({ projects }) => {
           </p>
           <div className="landing-hero-actions" aria-label="Primary actions">
             <a
-              href="/portfolio/Bijoy-Saha-CV.txt"
-              download="Bijoy-Saha-CV.txt"
+              href="/portfolio/CV-UX-Designer-BijoySaha-15Years.pdf"
+              download="CV-UX-Designer-BijoySaha-15Years.pdf"
               className="landing-hero-btn"
             >
               Download CV
