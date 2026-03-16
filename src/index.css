@@ -344,13 +344,23 @@ body {
   gap: 0.7rem;
 }
 
-.landing-hero-btn {
+.landing-hero-btn,
+.landing-hero-btn:link,
+.landing-hero-btn:visited,
+.landing-hero-btn:hover,
+.landing-hero-btn:active {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   min-height: 44px;
   border: 1px solid rgba(5, 96, 96, 0.38);
   border-radius: 999px;
   background: var(--brand-accent);
   color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+  line-height: 1;
   font-size: 0.88rem;
   font-weight: 700;
   cursor: pointer;
