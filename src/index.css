@@ -405,11 +405,21 @@ body {
   border: 1px solid var(--brand-line);
   border-radius: 18px;
   padding: 1rem;
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
   min-height: 182px;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.project-box-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: #0F36FA;
+  font-size: 22px;
+  line-height: 1;
 }
 
 .project-box-index {
@@ -450,6 +460,10 @@ body {
 .project-box-link:hover .project-box h2,
 .project-box-link:hover .project-box p,
 .project-box-link:hover .project-box-cta {
+  color: #00121F;
+}
+
+.project-box-link:hover .project-box-icon {
   color: #00121F;
 }
 
