@@ -1,5 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --brand-bg: #f4efe4;
+  --brand-surface: rgba(255, 255, 255, 0.86);
+  --brand-ink: #172328;
+  --brand-muted: #4d6269;
+  --brand-accent: #056060;
+  --brand-accent-soft: #0f766e;
+  --brand-line: rgba(23, 35, 40, 0.16);
+}
+
 * {
-  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 html, body, #root {
@@ -8,9 +21,12 @@ html, body, #root {
 
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: #ffffff;
-  color: #333;
+  font-family: 'Space Grotesk', sans-serif;
+  background:
+    radial-gradient(circle at 10% 14%, rgba(5, 96, 96, 0.22) 0%, rgba(5, 96, 96, 0) 30%),
+    radial-gradient(circle at 88% 82%, rgba(217, 119, 6, 0.22) 0%, rgba(217, 119, 6, 0) 36%),
+    var(--brand-bg);
+  color: var(--brand-ink);
   overflow-x: hidden;
 }
 
@@ -83,7 +99,7 @@ body {
 
 .main-content {
   overflow-y: visible;
-  padding: 1rem 100px;
+  padding: 1.25rem 72px;
   min-height: 100vh;
 }
 
@@ -215,27 +231,31 @@ body {
 .landing-page {
   width: 100%;
   margin: 0;
-  padding: 0 0 2rem;
-  min-height: calc(100vh - 2rem);
+  padding: 0 0 2.25rem;
+  min-height: calc(100vh - 2.5rem);
   display: flex;
   flex-direction: column;
+  gap: 2rem;
 }
 
 .landing-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.25rem 0;
-  border-bottom: none;
+  padding: 1.25rem 1.25rem;
+  border: 1px solid var(--brand-line);
+  border-radius: 20px;
+  background: var(--brand-surface);
+  backdrop-filter: blur(8px);
   position: relative;
 }
 
 .landing-logo {
-  color: #111827;
+  color: var(--brand-ink);
   font-size: 1.35rem;
-  font-weight: 800;
+  font-weight: 700;
   text-decoration: none;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
 }
 
 .landing-menu {
@@ -246,11 +266,10 @@ body {
 .landing-menu button {
   border: none;
   background: transparent;
-  padding: 0;
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  color: #000000;
+  padding: 0.3rem 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--brand-muted);
   cursor: pointer;
 }
 
@@ -277,39 +296,91 @@ body {
 
 .landing-menu a,
 .landing-menu button {
-  color: #374151;
+  color: var(--brand-muted);
   text-decoration: none;
   font-weight: 600;
 }
 
 .landing-menu a:hover,
 .landing-menu button:hover {
-  color: #111827;
+  color: var(--brand-accent);
 }
 
 .landing-hero {
   margin: 0;
-  flex: 1;
-  width: 60%;
+  width: min(760px, 100%);
   display: flex;
   align-items: center;
 }
 
-.landing-hero h1 {
+.landing-kicker {
   margin: 0;
-  font-size: 2rem;
-  color: #111827;
+  color: var(--brand-accent);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.landing-hero h1 {
+  margin: 0.65rem 0 0;
+  font-size: clamp(2rem, 3.8vw, 3.5rem);
+  line-height: 1.1;
+  color: var(--brand-ink);
+  text-wrap: balance;
+}
+
+.landing-intro {
+  max-width: 62ch;
+  margin: 1rem 0 0;
+  color: var(--brand-muted);
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+
+.landing-hero-actions {
+  margin-top: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 190px));
+  gap: 0.7rem;
+}
+
+.landing-hero-btn {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid rgba(5, 96, 96, 0.38);
+  border-radius: 999px;
+  background: var(--brand-accent);
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.landing-hero-btn:hover {
+  background: #044f4f;
+  transform: translateY(-1px);
+}
+
+.landing-hero-btn-secondary {
+  background: transparent;
+  color: var(--brand-accent);
+}
+
+.landing-hero-btn-secondary:hover {
+  background: rgba(5, 96, 96, 0.08);
 }
 
 .project-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.75rem;
-  margin-top: auto;
+  gap: 0.95rem;
+  margin-top: 0.5rem;
   position: sticky;
-  bottom: 100px;
-  background: #ffffff;
-  padding-top: 0.75rem;
+  bottom: 22px;
+  background: linear-gradient(180deg, rgba(244, 239, 228, 0) 0%, var(--brand-bg) 20%);
+  padding-top: 1.35rem;
 }
 
 .project-box-link {
@@ -318,50 +389,48 @@ body {
 }
 
 .project-box {
-  background: #fff;
-  border: 1px solid #e3e3e3;
-  border-radius: 12px;
-  padding: 0.85rem;
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.72));
+  border: 1px solid var(--brand-line);
+  border-radius: 18px;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  min-height: 144px;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  gap: 0.65rem;
+  min-height: 182px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.project-box-index {
+  margin: 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--brand-muted);
 }
 
 .project-box h2 {
   margin: 0;
-  font-size: 1rem;
-  color: #111827;
+  font-size: 1.15rem;
+  color: var(--brand-ink);
 }
 
 .project-box p {
   margin: 0;
-  color: #4b5563;
+  color: var(--brand-muted);
   font-size: 0.9rem;
+  line-height: 1.55;
 }
 
-.project-box a {
+.project-box-cta {
   margin-top: auto;
-  align-self: flex-start;
-  text-decoration: none;
-  background: #111827;
-  color: #fff;
-  border-radius: 8px;
-  padding: 0.45rem 0.8rem;
+  color: var(--brand-accent);
+  font-size: 0.86rem;
   font-weight: 600;
 }
 
-.project-box a[aria-disabled="true"] {
-  background: #9ca3af;
-}
-
 .project-box-link:hover .project-box {
-  border-color: #0f766e;
-  box-shadow: 0 6px 18px rgba(15, 118, 110, 0.14);
+  transform: translateY(-4px);
+  border-color: rgba(5, 96, 96, 0.38);
+  box-shadow: 0 18px 38px rgba(23, 35, 40, 0.14);
 }
 
 .project-detail-page {
@@ -819,21 +888,75 @@ body {
 }
 
 .landing-info {
-  margin-top: 1.5rem;
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 1rem;
+  background: var(--brand-surface);
+  border: 1px solid var(--brand-line);
+  border-radius: 20px;
+  padding: 1.25rem;
+  backdrop-filter: blur(8px);
 }
 
-.landing-info h3 {
+.landing-info h2,
+.landing-contact h2 {
   margin: 0;
-  color: #111827;
+  color: var(--brand-ink);
+  font-size: 1.3rem;
 }
 
 .landing-info p {
-  margin: 0.55rem 0 0;
-  color: #4b5563;
+  margin: 0.75rem 0 0;
+  color: var(--brand-muted);
+  line-height: 1.65;
+}
+
+.landing-tags {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.landing-tag {
+  border: 1px solid rgba(5, 96, 96, 0.3);
+  background: rgba(5, 96, 96, 0.06);
+  border-radius: 999px;
+  color: var(--brand-accent-soft);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.4rem 0.75rem;
+}
+
+.landing-contact {
+  background: rgba(23, 35, 40, 0.94);
+  border-radius: 20px;
+  padding: 1.25rem;
+  color: #f4f3ef;
+}
+
+.landing-contact p {
+  margin: 0.75rem 0 0;
+  color: rgba(244, 243, 239, 0.78);
+}
+
+.landing-contact-actions {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.landing-contact-actions a {
+  text-decoration: none;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  padding: 0.48rem 0.8rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.landing-contact-actions a:hover {
+  background: rgba(255, 255, 255, 0.24);
 }
 
 .landing-anchor {
@@ -849,9 +972,6 @@ body {
   .landing-page {
     min-height: auto;
     display: block;
-  }
-
-  .landing-page {
     padding-bottom: 16px;
   }
 
@@ -869,6 +989,7 @@ body {
   .landing-header {
     justify-content: space-between;
     align-items: center;
+    border-radius: 16px;
   }
 
   .landing-menu-toggle {
@@ -881,7 +1002,7 @@ body {
     top: calc(100% + 8px);
     right: 0;
     background: #ffffff;
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--brand-line);
     border-radius: 10px;
     padding: 0.6rem 0.8rem;
     box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
@@ -899,7 +1020,7 @@ body {
   }
 
   .landing-logo {
-    font-size: 2rem;
+    font-size: 1.1rem;
   }
 
   .landing-hero {
@@ -940,12 +1061,21 @@ body {
   }
 
   .landing-hero h1 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+  }
+
+  .landing-hero-actions {
+    width: min(360px, 100%);
+    grid-template-columns: 1fr;
   }
 
   .project-grid {
     grid-template-columns: 1fr;
     margin-top: 1rem;
+  }
+
+  .project-box {
+    min-height: 152px;
   }
 
   .project-detail-header {

@@ -28,7 +28,8 @@ This project is a portfolio workspace built with React and Vite. It includes a p
 
 ## Routes
 
-- `/` and `/portfolio`: portfolio landing page
-- `/healthcare-crm`: healthcare dashboard demo
+- `/#/` and `/#/portfolio`: portfolio landing page
+- `/#/project/:projectId`: project detail page
+- `/#/project/:projectId/link`: project demo/dashboard preview
 
 Customize `src/App.jsx` and components under `src/components/` to add more projects and screens.

@@ -8,38 +8,34 @@ const projects = [
   {
     slug: 'finance',
     title: 'Finance',
-    summary: 'Fintech tools and analytics workflows.',
+    summary: 'Fintech tools and analytics workflows for cross-functional risk and growth teams.',
     detail:
-      'Placeholder sub text for the Finance page. Add the project overview, business context, key decisions, and measurable outcomes here.',
+      'Designed a modular reporting experience for a multi-market fintech platform. The work reduced handoff friction between product, risk, and operations teams by introducing reusable dashboard patterns and clearer decision checkpoints.',
     link: 'https://example.com/finance',
-    linkPath: '/project/healthcare/financelink',
   },
   {
     slug: 'healthcare',
     title: 'Healthcare',
-    summary: 'Service design and care experience systems.',
+    summary: 'Service design and care experience systems for patient, clinician, and operations workflows.',
     detail:
-      'Placeholder sub text for the Healthcare page. Add the problem space, user journey improvements, and enterprise UX decisions here.',
+      'Led the UX direction for a healthcare CRM concept focused on care continuity, fast triage, and transparent reporting. The prototype demonstrates information hierarchy, status communication, and scalable component behavior for complex dashboards.',
     link: 'https://example.com/healthcare',
-    linkPath: '/project/healthcare/healthcarelink',
   },
   {
     slug: 'ios-app',
-    title: 'IOS app',
-    summary: 'Mobile-first product experiments.',
+    title: 'iOS App',
+    summary: 'Mobile-first product experiments with a focus on concise flows and gesture-native interactions.',
     detail:
-      'Placeholder sub text for the IOS app page. Add the product vision, mobile interactions, and implementation highlights here.',
+      'Built and tested mobile interaction patterns for high-frequency user tasks. The concept explores onboarding compression, contextual navigation, and accessibility-aware UI states in constrained viewports.',
     link: 'https://example.com/ios-app',
-    linkPath: '/project/healthcare/iosapplink',
   },
   {
     slug: 'dashboard',
     title: 'Dashboard',
-    summary: 'Data products and visual reporting.',
+    summary: 'Data products and visual reporting designed for clarity, actionability, and trust.',
     detail:
-      'Placeholder sub text for the Dashboard page. Add the reporting framework, visualization strategy, and insights delivered here.',
+      'Created a dashboard framework that balances executive-level summaries with drill-down depth for specialist users. Emphasis was placed on visual rhythm, status semantics, and reducing cognitive load in dense interfaces.',
     link: 'https://example.com/dashboard',
-    linkPath: '/project/healthcare/dashboardlink',
   },
 ];
 
@@ -71,12 +67,9 @@ export default function App() {
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Portfolio projects={projects} />} />
+          <Route path="/portfolio" element={<Portfolio projects={projects} />} />
           <Route path="/project/:projectId" element={<ProjectDetailRoute />} />
           <Route path="/project/:projectId/link" element={<ProjectLinkRoute />} />
-          <Route path="/project/healthcare/financelink" element={<ProjectLinkPage project={projects[0]} />} />
-          <Route path="/project/healthcare/healthcarelink" element={<ProjectLinkPage project={projects[1]} />} />
-          <Route path="/project/healthcare/iosapplink" element={<ProjectLinkPage project={projects[2]} />} />
-          <Route path="/project/healthcare/dashboardlink" element={<ProjectLinkPage project={projects[3]} />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
