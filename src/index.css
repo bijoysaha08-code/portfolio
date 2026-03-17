@@ -269,9 +269,10 @@ body {
 }
 
 .landing-logo {
-  color: var(--brand-ink);
-  font-size: 1.35rem;
-  font-weight: 700;
+  color: #12232A;
+  font-family: 'Inter', sans-serif;
+  font-size: 32px;
+  font-weight: 400;
   text-decoration: none;
   letter-spacing: 0.03em;
 }
