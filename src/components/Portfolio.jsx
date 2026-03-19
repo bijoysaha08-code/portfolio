@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Portfolio = ({ projects }) => {
@@ -39,18 +39,19 @@ const Portfolio = ({ projects }) => {
 
       <section id="projects" className="project-grid">
         {projects.map((project, index) => (
-          <Link
-            key={project.slug}
-            to={`/project/${project.slug}`}
-            className="project-box-link"
-          >
+          <Link key={project.slug} to={`/project/${project.slug}`} className="project-box-link">
             <article className="project-box">
-              <span className="project-box-icon material-symbols-outlined" aria-hidden="true">
-                arrow_outward
-              </span>
-              <span className="project-box-index">0{index + 1}</span>
-              <h2>{project.title}</h2>
-              <p>{project.summary}</p>
+              <div className="project-box-top">
+                <span className="project-box-index">0{index + 1}</span>
+                <span className="project-box-icon material-symbols-outlined" aria-hidden="true">
+                  arrow_outward
+                </span>
+              </div>
+
+              <div className="project-box-content">
+                <h2>{project.title}</h2>
+                <p>{project.summary}</p>
+              </div>
             </article>
           </Link>
         ))}

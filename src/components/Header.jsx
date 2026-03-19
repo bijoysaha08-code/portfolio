@@ -1,24 +1,16 @@
 import React from 'react';
 
-export default function Header({ patient, onToggleSidebar }) {
+export default function Header() {
   return (
-    <div className="navbar">
-      <div className="navbar-left">
-        {onToggleSidebar ? (
-          <button className="hamburger-btn" onClick={onToggleSidebar}>
-            <span className="material-symbols-outlined">menu</span>
-          </button>
-        ) : null}
-        <div className="heading-box">
-          <button className="icon-button" onClick={() => window.history.back()}>
-            <span className="material-icons">arrow_back</span>
-          </button>
-          <h1>{patient.name}</h1>
-        </div>
+    <div className="navbar dashboard-header">
+      <div className="dashboard-header-main">
+        <h1 className="dashboard-welcome-title">Welcome Dr. Jack Marcos</h1>
       </div>
-      <div>
-        <button className="button">Contact patient Home</button>
-        <button className="button">Consult Another Doctor</button>
+
+      <div className="dashboard-header-actions">
+        <button type="button" className="dashboard-summary-btn">
+          Summarise My Day
+        </button>
       </div>
     </div>
   );

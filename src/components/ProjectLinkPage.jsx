@@ -1,51 +1,282 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import Header from './Header';
+import ReportsTable from './ReportsTable';
+
+const patient = {
+  name: 'Aarav Mehta',
+  summary: '42 years old · Follow-up for respiratory recovery · Assigned to Dr. Iqbal',
+  branch: 'Kolkata South',
+  careStage: 'Observation',
+};
+
+const reports = [
+  {
+    name: 'CBC Panel',
+    result: 'Normal',
+    date: '18 Mar 2026',
+    priority: 'Routine',
+    status: 'Reviewed',
+  },
+  {
+    name: 'Chest X-Ray',
+    result: 'Improving infiltrates',
+    date: '17 Mar 2026',
+    priority: 'High',
+    status: 'Shared with pulmonology',
+  },
+  {
+    name: 'CRP',
+    result: '6 mg/L',
+    date: '16 Mar 2026',
+    priority: 'Routine',
+    status: 'Trend improving',
+  },
+];
+
+const appointments = [
+  {
+    title: 'Pulmonology follow-up',
+    time: '20 Mar · 10:30 AM',
+    owner: 'Dr. Iqbal',
+  },
+  {
+    title: 'Nutrition review',
+    time: '22 Mar · 1:00 PM',
+    owner: 'R. Sen',
+  },
+  {
+    title: 'Discharge planning call',
+    time: '23 Mar · 4:30 PM',
+    owner: 'Care coordination',
+  },
+];
+
+const overviewQuickStats = [
+  {
+    name: 'Critical Alerts',
+    value: '3',
+  },
+  {
+    name: 'Pending Approvals',
+    value: '7',
+  },
+  {
+    name: 'ICU Patients',
+    value: '12',
+    alertText: '3 Review Pending',
+    alertTone: 'danger',
+  },
+  {
+    name: 'IPD Patients',
+    value: '21',
+    alertText: '7 Review Pending',
+    alertTone: 'warning',
+  },
+  {
+    name: 'OPD Patients',
+    value: '30',
+    alertText: '21 Pending',
+    alertTone: 'warning',
+  },
+];
+
+const overviewRightPanels = [
+  {
+    label: 'Today focus',
+    value: 'Discharge readiness',
+    note: 'Coordinate final imaging check and family instructions.',
+  },
+  {
+    label: 'Alerts',
+    value: '2 reminders',
+    note: 'Medication audit due at 2 PM and call-back at 4:30 PM.',
+  },
+];
+
+const navItems = [
+  { icon: 'home', label: 'Home' },
+  { icon: 'calendar_month', label: 'Appointments' },
+  { icon: 'person', label: 'Patients' },
+  { icon: 'lab_research', label: 'Reports' },
+];
+
+const branchOptions = [
+  'All Branches',
+  'Brooklyn Heights',
+  'Williamsburg',
+  'Long Island City',
+  'Astoria',
+  'Flushing',
+];
 
 export default function ProjectLinkPage({ project }) {
+  const navigate = useNavigate();
+  const branchMenuRef = useRef(null);
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
   const [activePage, setActivePage] = useState('Home');
+  const [selectedBranch, setSelectedBranch] = useState(branchOptions[0]);
+  const [isBranchMenuOpen, setIsBranchMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (branchMenuRef.current && !branchMenuRef.current.contains(event.target)) {
+        setIsBranchMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, []);
 
   const handleLogoutClick = () => {
-    const confirmed = window.confirm('Are you sure you want to logout?');
-    if (confirmed) {
-      setActivePage('Logout');
-    }
+    setActivePage('Logout');
   };
 
-  const navItems = [
-    { icon: 'home', label: 'Home' },
-    { icon: 'calendar_month', label: 'Appointments' },
-    { icon: 'person', label: 'Patients' },
-    { icon: 'lab_research', label: 'Reports' },
-    { icon: 'settings', label: 'Settings' },
-  ];
+  const renderMainContent = () => {
+    if (activePage === 'Home') {
+      return (
+        <>
+          <Header
+            patient={patient}
+            onBack={() => navigate(`/project/${project.slug}`)}
+            primaryActionLabel="Message family"
+            secondaryActionLabel="Escalate case"
+          />
 
-  const pageCopy = {
-    Home: 'This is the Home dashboard area. Use this section for quick patient overview, alerts, and shortcuts.',
-    Appointments:
-      'This is the Appointments area. Use this section for schedules, doctor availability, and booking updates.',
-    Patients:
-      'This is the Patients area. Use this section for profile details, history, and treatment records.',
-    Reports: 'This is the Reports area. Use this section for test results, summaries, and analytics.',
-    Settings: 'This is the Settings area. Use this section for account preferences and system configurations.',
-    Logout: 'This is the Logout placeholder area. You can connect this action to a real sign-out workflow.',
+          <div className="dashboard-overview-grid dashboard-overview-grid-home">
+            <div className="dashboard-overview-left">
+              <div className="dashboard-overview-left-top">
+                {overviewQuickStats.map((item) => (
+                  <article key={item.name} className="dashboard-layout-box dashboard-layout-box-compact dashboard-stat-box">
+                    <strong className="dashboard-stat-value">{item.value}</strong>
+                    <p className="dashboard-stat-name">{item.name}</p>
+                    {item.alertText && (
+                      <span className={`dashboard-stat-alert dashboard-stat-alert-${item.alertTone}`}>
+                        {item.alertText}
+                      </span>
+                    )}
+                  </article>
+                ))}
+              </div>
+
+              <article className="dashboard-layout-box dashboard-layout-box-wide">
+                <h2 className="dashboard-patients-heading">Patients</h2>
+              </article>
+            </div>
+
+            <div className="dashboard-overview-right">
+              {overviewRightPanels.map((item) => (
+                <article key={item.label} className="dashboard-layout-box dashboard-layout-box-side">
+                  <span className="dashboard-overview-label">{item.label}</span>
+                  <strong>{item.value}</strong>
+                  <p>{item.note}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </>
+      );
+    }
+
+    if (activePage === 'Appointments') {
+      return (
+        <section className="dashboard-section dashboard-section-surface">
+          <div className="dashboard-section-heading">
+            <h2>Upcoming appointments</h2>
+            <p>Coordinated schedule for the next recovery milestones.</p>
+          </div>
+          <div className="dashboard-stack">
+            {appointments.map((appointment) => (
+              <article key={appointment.title} className="dashboard-list-card">
+                <strong>{appointment.title}</strong>
+                <p>{appointment.time}</p>
+                <span>{appointment.owner}</span>
+              </article>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    if (activePage === 'Patients') {
+      return (
+        <section className="dashboard-content-grid dashboard-content-grid-single">
+          <article className="dashboard-section dashboard-section-surface">
+            <div className="dashboard-section-heading">
+              <h2>Patient profile</h2>
+              <p>Operational summary for support staff and clinicians.</p>
+            </div>
+            <dl className="dashboard-definition-list">
+              <div>
+                <dt>Primary diagnosis</dt>
+                <dd>Post-infection respiratory monitoring</dd>
+              </div>
+              <div>
+                <dt>Insurance</dt>
+                <dd>Verified · Corporate plan</dd>
+              </div>
+              <div>
+                <dt>Risk level</dt>
+                <dd>Moderate</dd>
+              </div>
+              <div>
+                <dt>Preferred contact</dt>
+                <dd>Family coordinator and SMS reminders</dd>
+              </div>
+            </dl>
+          </article>
+        </section>
+      );
+    }
+
+    if (activePage === 'Reports') {
+      return (
+        <section className="dashboard-section dashboard-section-surface">
+          <div className="dashboard-section-heading">
+            <h2>Clinical reports</h2>
+            <p>Review-ready history prepared for physician and admin workflows.</p>
+          </div>
+          <ReportsTable reports={reports} />
+        </section>
+      );
+    }
+
+    if (activePage === 'Settings') {
+      return (
+        <div className="dashboard-overview-grid">
+          <article className="dashboard-overview-card">
+            <span className="dashboard-overview-label">Notifications</span>
+            <strong>Urgent only</strong>
+            <p>Critical patient alerts are enabled for assigned staff.</p>
+          </article>
+          <article className="dashboard-overview-card">
+            <span className="dashboard-overview-label">Data sharing</span>
+            <strong>Restricted</strong>
+            <p>External report downloads require supervisor approval.</p>
+          </article>
+          <article className="dashboard-overview-card">
+            <span className="dashboard-overview-label">Theme</span>
+            <strong>Clinical light</strong>
+            <p>High-contrast interface tuned for desktop review stations.</p>
+          </article>
+        </div>
+      );
+    }
+
+    return (
+      <section className="dashboard-section dashboard-section-surface dashboard-empty-state">
+        <h2>Signed out preview</h2>
+        <p>This state can be connected to a real authentication flow when the concept moves beyond portfolio preview.</p>
+      </section>
+    );
   };
 
   return (
     <section className="project-link-page">
-      <header className="project-link-topbar">
-        <Link
-          to={`/project/${project.slug}`}
-          className="project-link-back-button"
-          aria-label={`Back to ${project.title} details`}
-        >
-          <span className="material-symbols-outlined" aria-hidden="true">
-            arrow_left_alt
-          </span>
-          <span className="project-link-title">Back</span>
-        </Link>
-      </header>
-
       <section className="project-link-dashboard" aria-label="Healthcare dashboard preview">
         <aside
           className={`project-link-sidebar ${sidebarExpanded ? 'expanded' : 'collapsed'}`}
@@ -62,8 +293,8 @@ export default function ProjectLinkPage({ project }) {
               aria-label={sidebarExpanded ? 'Collapse navigation' : 'Expand navigation'}
               onClick={() => setSidebarExpanded((value) => !value)}
             >
-              <span className="material-symbols-outlined" aria-hidden="true">
-                {sidebarExpanded ? 'close' : 'menu'}
+              <span className="material-symbols-outlined project-link-toggle-icon" aria-hidden="true">
+                {sidebarExpanded ? 'close' : 'dehaze'}
               </span>
             </button>
 
@@ -105,29 +336,54 @@ export default function ProjectLinkPage({ project }) {
         <div className="project-link-main" aria-label="Main dashboard area">
           <div className="project-link-body">
             <div className="project-link-toprow">
-              {/* Section 1: Branch dropdown */}
-              <button type="button" className="project-link-branch-dropdown">
-                <span className="project-link-branch-text">All Branches</span>
-                <span className="material-symbols-outlined" aria-hidden="true">keyboard_arrow_down</span>
-              </button>
+              <div className="project-link-branch-control" ref={branchMenuRef}>
+                <button
+                  type="button"
+                  className="project-link-branch-dropdown"
+                  aria-haspopup="listbox"
+                  aria-expanded={isBranchMenuOpen}
+                  onClick={() => setIsBranchMenuOpen((value) => !value)}
+                >
+                  <span className="project-link-branch-text">{selectedBranch}</span>
+                  <span className="material-symbols-outlined" aria-hidden="true">
+                    {isBranchMenuOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
+                  </span>
+                </button>
 
-              {/* Section 2: Search */}
+                {isBranchMenuOpen && (
+                  <ul className="project-link-branch-menu" role="listbox" aria-label="Select branch">
+                    {branchOptions.map((branch) => (
+                      <li key={branch}>
+                        <button
+                          type="button"
+                          className={`project-link-branch-option ${selectedBranch === branch ? 'selected' : ''}`}
+                          role="option"
+                          aria-selected={selectedBranch === branch}
+                          onClick={() => {
+                            setSelectedBranch(branch);
+                            setIsBranchMenuOpen(false);
+                          }}
+                        >
+                          {branch}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+
               <div className="project-link-search" role="search">
-                <span className="project-link-search-label">Search</span>
+                <span className="project-link-search-label">Search patients, reports, or care notes</span>
                 <span className="material-symbols-outlined" aria-hidden="true">search</span>
               </div>
 
-              {/* Section 3: Notification + Profile */}
               <div className="project-link-header-icons">
                 <span className="material-symbols-outlined" aria-label="Notifications">notifications</span>
                 <span className="material-symbols-outlined" aria-label="Profile">account_circle</span>
               </div>
             </div>
 
-            <div className="project-link-main-content">
-              <h2>{activePage}</h2>
-              <p>{pageCopy[activePage]}</p>
-            </div>
+            <div className="project-link-main-content">{renderMainContent()}</div>
           </div>
         </div>
       </section>
