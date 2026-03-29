@@ -2467,7 +2467,6 @@ body.project-link-route-active .dashboard-overview-right {
   font-size: 1.3rem;
 }
 
-.landing-logo {
   color: #171D23;
   font-family: 'Inter', sans-serif;
   font-size: 32px;
@@ -2486,10 +2485,6 @@ body.project-link-route-active .dashboard-overview-right {
   padding-left: 0 !important;
   padding-right: 2rem;
 }
-  color: var(--brand-accent-soft);
-  font-size: 0.82rem;
-  font-weight: 600;
-  padding: 0.4rem 0.75rem;
 }
 
 .landing-contact {
