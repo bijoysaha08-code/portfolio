@@ -1,3 +1,30 @@
+/* Add border and shadow to hero photo */
+.hero-photo {
+  border: 3px solid #e0e0e0;
+  box-shadow: 0 4px 24px 0 rgba(23,29,35,0.10);
+}
+/* Main hero panel below sticky logo */
+.main-hero-panel {
+  width: 60vw;
+  max-width: 60vw;
+  height: 60vh;
+  min-height: 400px;
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+  margin-left: 0;
+  margin-right: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.main-hero-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  align-items: flex-start;
+}
 .dashboard-stat-alert {
   position: absolute;
   left: 50%;
@@ -331,18 +358,7 @@ body.project-link-route-active .main-content {
   gap: 2rem;
 }
 
-.landing-page::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: var(--home-bg-image);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.5;
-  pointer-events: none;
-  z-index: -1;
-}
+
 
 .landing-page > * {
   position: relative;
@@ -350,23 +366,32 @@ body.project-link-route-active .main-content {
 }
 
 .landing-header {
+      padding-left: 72px;
+    width: 100vw;
+    left: 0;
+    margin-left: calc(-1 * (72px));
+    box-sizing: border-box;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: rgba(255,255,255,0.8);
   border: none;
   border-radius: 0;
-  background: transparent;
-  backdrop-filter: none;
-  position: relative;
+  backdrop-filter: blur(12px);
 }
 
 .landing-logo {
-  color: #12232A;
+  color: #171D23;
   font-family: 'Inter', sans-serif;
   font-size: 32px;
   font-weight: 600;
   line-height: 1.05;
+  text-decoration: none;
 }
 
 
@@ -478,12 +503,11 @@ body.project-link-route-active .main-content {
 }
 
 .hero-gradient-text {
-  background: #3F5EFB;
-  background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+  background: none;
+  color: inherit;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: initial;
 }
 
 .landing-intro {
@@ -540,7 +564,7 @@ body.project-link-route-active .main-content {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.95rem;
   padding-top: 1.35rem;
 }
