@@ -5,7 +5,7 @@ const Portfolio = ({ projects }) => {
   return (
     <section className="landing-page">
       <header className="landing-header">
-        <Link to="/" className="landing-logo" style={{ paddingLeft: '2rem', paddingRight: '2rem' }}>Bijoy.B</Link>
+        <Link to="/" className="landing-logo" style={{ paddingLeft: '0', paddingRight: '0', display: 'flex', alignItems: 'center', height: '100%' }}>Bijoy.B</Link>
         <a
           href="mailto:bijoysaha08@gmail.com"
           className="header-mail-group"
